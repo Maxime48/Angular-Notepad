@@ -1,0 +1,9 @@
+<div *ngIf="isFormVisible">
+  <form (submit)="addNote()">
+    <div class="form-group">
+      <label for="noteText">Texte de la note</label>
+      <textarea id="noteText" class="form-control" [(ngModel)]="newNote" name="noteText"></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Ajouter</button>
+  </form>
+</div>

@@ -1,0 +1,16 @@
+<h1>Liste de notes</h1>
+  <ul class="list-group">
+    <li *ngFor="let note of notes" class="list-group-item" [ngClass]="{'list-group-item-success': note.completed, 'list-group-item-danger': !note.completed}">
+      {{ note.text }}
+      <button class="btn btn-sm btn-danger float-end" (click)="deleteNote(note)">Supprimer</button>
+      <button
+        class="btn btn-sm btn-success float-end me-2"
+        (click)="toggleCompleted(note)"
+        [ngClass]="{'btn-success': !note.completed, 'btn-danger': note.completed}"
+      >
+        {{ note.completed ? 'Annuler' : "Compléter" }}
+      </button>
+      <button class="btn btn-sm btn-info float-end me-2" [routerLink]="['/modify', note.text]">Modify</button>
+    </li>
+  </ul>
+
